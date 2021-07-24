@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="j1M-ER-f6B">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Главная-->
+        <scene sceneID="f4g-Zy-8Fl">
+            <objects>
+                <viewController storyboardIdentifier="FeedViewController" id="5Ed-KV-3s4" customClass="FeedViewController" customModule="LifeStories" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="t3D-V3-Thn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="X8x-zG-ZkO">
+                                <rect key="frame" x="0.0" y="132" width="414" height="730"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J1e-PU-TFL">
+                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7VE-W0-3bu">
+                                        <rect key="frame" x="10" y="5" width="101" height="34"/>
+                                        <state key="normal" title="Sort by Date">
+                                            <color key="titleColor" name="AccentColor"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBJ-y4-9nU">
+                                        <rect key="frame" x="290" y="5" width="114" height="34"/>
+                                        <state key="normal" title="Sort by Rating">
+                                            <color key="titleColor" name="AccentColor"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="0Ph-L3-bJ4"/>
+                                    <constraint firstItem="uBJ-y4-9nU" firstAttribute="centerY" secondItem="J1e-PU-TFL" secondAttribute="centerY" id="4tB-8k-Efj"/>
+                                    <constraint firstItem="7VE-W0-3bu" firstAttribute="leading" secondItem="J1e-PU-TFL" secondAttribute="leading" constant="10" id="eE3-AQ-eXl"/>
+                                    <constraint firstAttribute="trailing" secondItem="uBJ-y4-9nU" secondAttribute="trailing" constant="10" id="jCr-dO-A94"/>
+                                    <constraint firstItem="7VE-W0-3bu" firstAttribute="centerY" secondItem="J1e-PU-TFL" secondAttribute="centerY" id="mJS-Me-sDe"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Tcc-0S-HEY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="X8x-zG-ZkO" firstAttribute="bottom" secondItem="Tcc-0S-HEY" secondAttribute="bottom" id="9Hp-Hq-daJ"/>
+                            <constraint firstItem="X8x-zG-ZkO" firstAttribute="top" secondItem="J1e-PU-TFL" secondAttribute="bottom" id="Dgs-WA-z88"/>
+                            <constraint firstItem="J1e-PU-TFL" firstAttribute="top" secondItem="Tcc-0S-HEY" secondAttribute="top" id="EMd-vD-Swg"/>
+                            <constraint firstItem="X8x-zG-ZkO" firstAttribute="leading" secondItem="Tcc-0S-HEY" secondAttribute="leading" id="Zo7-Zr-CxY"/>
+                            <constraint firstItem="J1e-PU-TFL" firstAttribute="leading" secondItem="Tcc-0S-HEY" secondAttribute="leading" id="gGG-1U-cZ4"/>
+                            <constraint firstItem="Tcc-0S-HEY" firstAttribute="trailing" secondItem="X8x-zG-ZkO" secondAttribute="trailing" id="lH0-Gl-JMz"/>
+                            <constraint firstItem="J1e-PU-TFL" firstAttribute="trailing" secondItem="Tcc-0S-HEY" secondAttribute="trailing" id="uWa-u3-dvy"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Главная" id="j1b-Ht-D8z">
+                        <barButtonItem key="rightBarButtonItem" image="natife-logo" id="efP-2u-tbG"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="diU-Uh-Vpr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="785.50724637681162" y="107.8125"/>
+        </scene>
+        <!--Story View Controller-->
+        <scene sceneID="7wf-C2-tZ6">
+            <objects>
+                <viewController id="2cx-2h-tr8" customClass="StoryViewController" customModule="LifeStories" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vkX-gi-kOq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="aj0-Bu-NS5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="den-uj-qBr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1438" y="108"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zAO-fc-AJh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="j1M-ER-f6B" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="whI-oZ-fNF">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="5Ed-KV-3s4" kind="relationship" relationship="rootViewController" id="eJB-BF-Tgp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="euJ-2B-PQk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="118.84057971014494" y="108.48214285714285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="natife-logo" width="40" height="24"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
