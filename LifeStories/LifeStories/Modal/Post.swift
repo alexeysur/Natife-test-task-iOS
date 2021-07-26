@@ -7,12 +7,41 @@
 
 import Foundation
 
-struct Post {
-    let postId: Int
-    let timeshamp: Int
-    let title: String
-    let previewText: String
-    let likesCount: Int
-    let images: [String]
+struct Post: Codable {
+    var postId: Int
+    var timeshamp: Int
+    var title: String
+    var previewText: String
+    var likesCount: Int
+    
+    private enum CodingKeys: String, CodingKey {
+        case postId = "postId"
+        case timeshamp =  "timeshamp"
+        case title = "title"
+        case previewText = "preview_text"
+        case likesCount = "likes_count"
+    }
+    
 }
 
+struct Posts: Codable {
+    var posts: [Post]
+}
+
+struct FullPost {
+    var postId: Int
+    var timeshamp: Int
+    var title: String
+    var previewText: String
+    var likesCount: Int
+    var images: [String]
+    
+    private enum CodingKeys: String, CodingKey {
+        case postId = "postId"
+        case timeshamp =  "timeshamp"
+        case title = "title"
+        case previewText = "preview_text"
+        case likesCount = "likes_count"
+        case images = "images"
+    }
+}

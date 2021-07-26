@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A7C7F1F26AE22E400C9C16C /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7C7F1E26AE22E400C9C16C /* UIColor+Ext.swift */; };
+		8A7C7F2126AE263F00C9C16C /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7C7F2026AE263F00C9C16C /* UILabel+Ext.swift */; };
 		8A8AE23726ABFCA70035222D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8AE23626ABFCA70035222D /* AppDelegate.swift */; };
 		8A8AE23926ABFCA70035222D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8AE23826ABFCA70035222D /* SceneDelegate.swift */; };
 		8A8AE23E26ABFCA70035222D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A8AE23C26ABFCA70035222D /* Main.storyboard */; };
@@ -17,11 +19,13 @@
 		8A8AE25526AC03F00035222D /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8AE25326AC03F00035222D /* PostCell.swift */; };
 		8A8AE25626AC03F00035222D /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A8AE25426AC03F00035222D /* PostCell.xib */; };
 		8A8AE25A26AC1A510035222D /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8AE25926AC1A510035222D /* StoryViewController.swift */; };
-		8A8AE26426AC319A0035222D /* post112.json in Resources */ = {isa = PBXBuildFile; fileRef = 8A8AE26326AC319A0035222D /* post112.json */; };
 		8A8AE26626AC31C00035222D /* feedPosts.json in Resources */ = {isa = PBXBuildFile; fileRef = 8A8AE26526AC31C00035222D /* feedPosts.json */; };
+		8A8AE26826AC32BB0035222D /* post112.json in Resources */ = {isa = PBXBuildFile; fileRef = 8A8AE26726AC32BB0035222D /* post112.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8A7C7F1E26AE22E400C9C16C /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
+		8A7C7F2026AE263F00C9C16C /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
 		8A8AE23326ABFCA70035222D /* LifeStories.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifeStories.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A8AE23626ABFCA70035222D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A8AE23826ABFCA70035222D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,8 +38,8 @@
 		8A8AE25326AC03F00035222D /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		8A8AE25426AC03F00035222D /* PostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
 		8A8AE25926AC1A510035222D /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
-		8A8AE26326AC319A0035222D /* post112.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = post112.json; sourceTree = SOURCE_ROOT; };
 		8A8AE26526AC31C00035222D /* feedPosts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = feedPosts.json; sourceTree = "<group>"; };
+		8A8AE26726AC32BB0035222D /* post112.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = post112.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +53,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A7C7F1C26AE0B7C00C9C16C /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		8A7C7F1D26AE22CB00C9C16C /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				8A7C7F1E26AE22E400C9C16C /* UIColor+Ext.swift */,
+				8A7C7F2026AE263F00C9C16C /* UILabel+Ext.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		8A8AE22A26ABFCA70035222D = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +88,8 @@
 		8A8AE23526ABFCA70035222D /* LifeStories */ = {
 			isa = PBXGroup;
 			children = (
+				8A7C7F1D26AE22CB00C9C16C /* Helper */,
+				8A7C7F1C26AE0B7C00C9C16C /* Networking */,
 				8A8AE26226AC31740035222D /* JSON */,
 				8A8AE25826AC1A280035222D /* Story */,
 				8A8AE25726AC19FA0035222D /* Feed */,
@@ -143,7 +165,7 @@
 		8A8AE26226AC31740035222D /* JSON */ = {
 			isa = PBXGroup;
 			children = (
-				8A8AE26326AC319A0035222D /* post112.json */,
+				8A8AE26726AC32BB0035222D /* post112.json */,
 				8A8AE26526AC31C00035222D /* feedPosts.json */,
 			);
 			path = JSON;
@@ -206,9 +228,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A8AE26426AC319A0035222D /* post112.json in Resources */,
 				8A8AE24326ABFCA80035222D /* LaunchScreen.storyboard in Resources */,
 				8A8AE24026ABFCA80035222D /* Assets.xcassets in Resources */,
+				8A8AE26826AC32BB0035222D /* post112.json in Resources */,
 				8A8AE26626AC31C00035222D /* feedPosts.json in Resources */,
 				8A8AE23E26ABFCA70035222D /* Main.storyboard in Resources */,
 				8A8AE25626AC03F00035222D /* PostCell.xib in Resources */,
@@ -222,11 +244,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A7C7F1F26AE22E400C9C16C /* UIColor+Ext.swift in Sources */,
 				8A8AE25A26AC1A510035222D /* StoryViewController.swift in Sources */,
 				8A8AE24F26ABFDF20035222D /* Post.swift in Sources */,
 				8A8AE23726ABFCA70035222D /* AppDelegate.swift in Sources */,
 				8A8AE25126ABFF210035222D /* FeedViewController.swift in Sources */,
 				8A8AE23926ABFCA70035222D /* SceneDelegate.swift in Sources */,
+				8A7C7F2126AE263F00C9C16C /* UILabel+Ext.swift in Sources */,
 				8A8AE25526AC03F00035222D /* PostCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

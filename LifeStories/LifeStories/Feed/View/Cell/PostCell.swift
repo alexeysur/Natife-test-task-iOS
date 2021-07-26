@@ -28,15 +28,19 @@ class PostCell: UITableViewCell {
 
     func setupStyleCell() {
         self.backgroundColor = .white
-        titleLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 14)
+        titleLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
         titleLabel.tintColor = .black
         
-        shotTextLabel.font = UIFont(name: "HelveticaNeue", size: 20)
+        shotTextLabel.font = UIFont(name: "HelveticaNeue", size: 14)
         shotTextLabel.shadowColor = .clear
         shotTextLabel.tintColor = .black
+        shotTextLabel.numberOfLines = 2
+        shotTextLabel.layer.borderColor = UIColor.red.cgColor
+        shotTextLabel.layer.borderWidth = 1
+        
         
         btnShowText.backgroundColor = .black
-        btnShowText.titleLabel?.text = "Показать полностью!!!"
+        btnShowText.setTitle("Показать полностью", for: .normal)
         btnShowText.tintColor = .white
         btnShowText.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 14)
         
