@@ -18,12 +18,12 @@ class StoryViewController: UIViewController {
     @IBOutlet weak var likeCountLabel: UILabel!
     @IBOutlet weak var timePostLabel: UILabel!
     
-    var post: FullPost?
+    var fullPost: FullPost?
     var postID: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+        setupPost()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,10 +38,37 @@ class StoryViewController: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         self.navigationController?.navigationBar.tintColor = .white
         
-        self.navigationController?.title = "Text"
         let attributes = [NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-Bold", size: 20)!]
         UINavigationBar.appearance().titleTextAttributes = attributes
      
+   //     let backBarButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+  //      navigationItem.backBarButtonItem = backBarButton
+        
+    }
+    
+    private func setupPost() {
+        guard let path = Bundle.main.url(forResource: "post112", withExtension: "json") else {
+            print("Error finding JSON file")
+            return
+        }
+        do {
+            let data = try Data(contentsOf: path)
+            let decoder = JSONDecoder()
+            let jsonResult = try decoder.decode(FullPosts.self, from: data)
+     
+            fullPost = jsonResult.fullPost
+            DispatchQueue.main.async {
+                self.titleStoryLabel.text = self.fullPost?.title
+                self.storyTextView.text = self.fullPost?.text
+  //              self.likeCountLabel.text = String(fullPost?.likesCount)
+                self.timePostLabel.text = self.fullPost?.timeshamp.toDate()
+            }
+            
+        } catch {
+            print("Error while decoding JSON")
+        }
+    
+        
     }
     
     private func setupStyle() {

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A6150E526B06B9A00D99010 /* FullPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6150E426B06B9A00D99010 /* FullPost.swift */; };
+		8A6150E726B06F9700D99010 /* UIInt+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6150E626B06F9700D99010 /* UIInt+Ext.swift */; };
+		8A6150E926B09B4100D99010 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6150E826B09B4100D99010 /* JSONParser.swift */; };
+		8A6150EB26B09E2700D99010 /* APIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6150EA26B09E2700D99010 /* APIConfig.swift */; };
 		8A7C7F1F26AE22E400C9C16C /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7C7F1E26AE22E400C9C16C /* UIColor+Ext.swift */; };
 		8A7C7F2126AE263F00C9C16C /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7C7F2026AE263F00C9C16C /* UILabel+Ext.swift */; };
 		8A8AE23726ABFCA70035222D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8AE23626ABFCA70035222D /* AppDelegate.swift */; };
@@ -14,7 +18,7 @@
 		8A8AE23E26ABFCA70035222D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A8AE23C26ABFCA70035222D /* Main.storyboard */; };
 		8A8AE24026ABFCA80035222D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A8AE23F26ABFCA80035222D /* Assets.xcassets */; };
 		8A8AE24326ABFCA80035222D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A8AE24126ABFCA80035222D /* LaunchScreen.storyboard */; };
-		8A8AE24F26ABFDF20035222D /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8AE24E26ABFDF20035222D /* Post.swift */; };
+		8A8AE24F26ABFDF20035222D /* ShortPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8AE24E26ABFDF20035222D /* ShortPost.swift */; };
 		8A8AE25126ABFF210035222D /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8AE25026ABFF210035222D /* FeedViewController.swift */; };
 		8A8AE25526AC03F00035222D /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8AE25326AC03F00035222D /* PostCell.swift */; };
 		8A8AE25626AC03F00035222D /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A8AE25426AC03F00035222D /* PostCell.xib */; };
@@ -24,6 +28,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8A6150E426B06B9A00D99010 /* FullPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullPost.swift; sourceTree = "<group>"; };
+		8A6150E626B06F9700D99010 /* UIInt+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIInt+Ext.swift"; sourceTree = "<group>"; };
+		8A6150E826B09B4100D99010 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
+		8A6150EA26B09E2700D99010 /* APIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfig.swift; sourceTree = "<group>"; };
 		8A7C7F1E26AE22E400C9C16C /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		8A7C7F2026AE263F00C9C16C /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
 		8A8AE23326ABFCA70035222D /* LifeStories.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifeStories.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -33,7 +41,7 @@
 		8A8AE23F26ABFCA80035222D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A8AE24226ABFCA80035222D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A8AE24426ABFCA80035222D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8A8AE24E26ABFDF20035222D /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		8A8AE24E26ABFDF20035222D /* ShortPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortPost.swift; sourceTree = "<group>"; };
 		8A8AE25026ABFF210035222D /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		8A8AE25326AC03F00035222D /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		8A8AE25426AC03F00035222D /* PostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
@@ -56,6 +64,8 @@
 		8A7C7F1C26AE0B7C00C9C16C /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				8A6150E826B09B4100D99010 /* JSONParser.swift */,
+				8A6150EA26B09E2700D99010 /* APIConfig.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -65,6 +75,7 @@
 			children = (
 				8A7C7F1E26AE22E400C9C16C /* UIColor+Ext.swift */,
 				8A7C7F2026AE263F00C9C16C /* UILabel+Ext.swift */,
+				8A6150E626B06F9700D99010 /* UIInt+Ext.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -115,7 +126,8 @@
 		8A8AE24B26ABFDAE0035222D /* Modal */ = {
 			isa = PBXGroup;
 			children = (
-				8A8AE24E26ABFDF20035222D /* Post.swift */,
+				8A8AE24E26ABFDF20035222D /* ShortPost.swift */,
+				8A6150E426B06B9A00D99010 /* FullPost.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -246,10 +258,14 @@
 			files = (
 				8A7C7F1F26AE22E400C9C16C /* UIColor+Ext.swift in Sources */,
 				8A8AE25A26AC1A510035222D /* StoryViewController.swift in Sources */,
-				8A8AE24F26ABFDF20035222D /* Post.swift in Sources */,
+				8A6150EB26B09E2700D99010 /* APIConfig.swift in Sources */,
+				8A8AE24F26ABFDF20035222D /* ShortPost.swift in Sources */,
+				8A6150E926B09B4100D99010 /* JSONParser.swift in Sources */,
+				8A6150E726B06F9700D99010 /* UIInt+Ext.swift in Sources */,
 				8A8AE23726ABFCA70035222D /* AppDelegate.swift in Sources */,
 				8A8AE25126ABFF210035222D /* FeedViewController.swift in Sources */,
 				8A8AE23926ABFCA70035222D /* SceneDelegate.swift in Sources */,
+				8A6150E526B06B9A00D99010 /* FullPost.swift in Sources */,
 				8A7C7F2126AE263F00C9C16C /* UILabel+Ext.swift in Sources */,
 				8A8AE25526AC03F00035222D /* PostCell.swift in Sources */,
 			);

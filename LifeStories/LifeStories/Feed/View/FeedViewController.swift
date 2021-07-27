@@ -9,16 +9,19 @@ import UIKit
 
 class FeedViewController: UIViewController {
    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     let cellIdentifier = "Cell"
-    var stories: [Post] = []
+    var stories: [ShortPost] = []
     var isHiddenButtonInCell = false
+    
+    private let jsonParser = JSONParser()
+    let apiConfig = APIConfig()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
         setupStyle()
-        loadStoriesToTable()
    }
     
     func setupTableView() {
@@ -27,6 +30,8 @@ class FeedViewController: UIViewController {
         tableView.allowsSelectionDuringEditing = false
         tableView.delegate = self
         tableView.dataSource = self
+        
+        getPosts()
     }
     
     func setupStyle() {
@@ -44,17 +49,18 @@ class FeedViewController: UIViewController {
  
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        parseStoryFromJSON()
-    }
-    
-    func loadStoriesToTable() {
-        
+      //  parseStoryFromJSON()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let storyVC = segue.destination as? StoryViewController, let index = tableView.indexPathForSelectedRow?.section else {
             return
         }
+        
+        let backItem = UIBarButtonItem()
+        backItem.title = ""
+        navigationItem.backBarButtonItem = backItem
+        
         print("postID = \(stories[index].postId)")
         storyVC.postID = stories[index].postId
     }
@@ -63,6 +69,38 @@ class FeedViewController: UIViewController {
     }
     
     @IBAction func sortByRatingTapped(_ sender: Any) {
+    }
+    
+    private func getPosts() {
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+        
+   //     let jsonURL = apiConfig.fetchURL(with: .posts, parameter: 0)
+  //      print("url = \(jsonURL!)")
+      
+        let url: URL = URL(string: "https://raw.githubusercontent.com/aShaforostov/jsons/master/api/main.json")!
+        
+        jsonParser.downloadData(of: ShortPost.self, from: url) { (result) in
+               switch result {
+               case .failure(let error):
+                   if error is DataError {
+                       print("DataError = \(error)")
+                   } else {
+                       print(error.localizedDescription)
+                   }
+               case .success(let jsonResult):
+                DispatchQueue.main.async {
+                    self.stories = jsonResult
+                    self.activityIndicator.isHidden = true
+                    self.activityIndicator.stopAnimating()
+                    self.tableView.reloadData()
+                     
+                }
+                   
+               }
+               
+           }
+
     }
     
     
@@ -74,9 +112,10 @@ class FeedViewController: UIViewController {
         do {
             let data = try Data(contentsOf: path)
             let decoder = JSONDecoder()
-            let jsonResult = try decoder.decode(Posts.self, from: data)
-     
-            stories = jsonResult.posts
+            let jsonResult = try decoder.decode(ShortPosts.self, from: data)
+      
+            
+            stories = jsonResult.shortPosts
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -103,17 +142,6 @@ extension FeedViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-   //tableView.deselectRow(at: indexPath, animated: true)
-//        if #available(iOS 13.0, *) {
-//            guard let storyVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "StoryViewController") as? StoryViewController else {
-//                return
-//            }
-//        } else {
-//            let storyVC = StoryViewController(
-//        }
-//
-//        navigationController?.pushViewController(storyVC, animated: true)
-        
         performSegue(withIdentifier: "storyViewController", sender: indexPath)
         
     }
@@ -161,8 +189,7 @@ extension FeedViewController: UITableViewDataSource {
         return cell
     }
     
-    func tableView(tableView: UITableView,
-        heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
 

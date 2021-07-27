@@ -23,6 +23,10 @@
                                 <rect key="frame" x="0.0" y="132" width="414" height="730"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" id="jRt-YF-Orj">
+                                <rect key="frame" x="0.0" y="426" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J1e-PU-TFL">
                                 <rect key="frame" x="0.0" y="88" width="414" height="44"/>
                                 <subviews>
@@ -73,6 +77,7 @@
                         <barButtonItem key="rightBarButtonItem" image="natife-logo" id="efP-2u-tbG"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="jRt-YF-Orj" id="zVD-vR-U0f"/>
                         <outlet property="tableView" destination="X8x-zG-ZkO" id="ZOr-CB-jv2"/>
                         <segue destination="2cx-2h-tr8" kind="show" identifier="storyViewController" id="lxR-Wc-Xjf"/>
                     </connections>
