@@ -15,7 +15,7 @@ enum DataError: Error {
 }
 
 class JSONParser {
-    typealias result<T> = (Result<[T], Error>) -> Void
+    typealias result<T> = (Result<T, Error>) -> Void
     let imageCache = NSCache<NSString, UIImage>()
     
     func downloadData<T: Decodable>(of type: T.Type, from url: URL, completion: @escaping result<T>) {
@@ -32,7 +32,7 @@ class JSONParser {
             if 200...299 ~= response.statusCode {
               if let data = data {
                 do {
-                    let decodedData: [T] = try JSONDecoder().decode([T].self, from: data)
+                    let decodedData: T = try JSONDecoder().decode(T.self, from: data)
                     completion(.success(decodedData))
                 } catch {
                     completion(.failure(DataError.decodingError))

@@ -25,7 +25,7 @@ struct ShortPost: Codable {
 }
 
 struct ShortPosts: Codable {
-    var shortPosts: [ShortPost]
+    var posts: [ShortPost]
 }
 
 

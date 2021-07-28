@@ -26,5 +26,5 @@ struct FullPost: Codable {
 }
 
 struct FullPosts: Codable {
-    var fullPost: FullPost
+    var post: FullPost
 }

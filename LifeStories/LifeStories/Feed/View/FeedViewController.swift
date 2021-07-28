@@ -13,6 +13,7 @@ class FeedViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     let cellIdentifier = "Cell"
     var stories: [ShortPost] = []
+    
     var isHiddenButtonInCell = false
     
     private let jsonParser = JSONParser()
@@ -22,6 +23,12 @@ class FeedViewController: UIViewController {
         super.viewDidLoad()
         setupTableView()
         setupStyle()
+        
+        if #available(iOS 13.0, *) {
+            activityIndicator.style = .large
+                } else {
+                    activityIndicator.style = .gray
+                }
    }
     
     func setupTableView() {
@@ -49,7 +56,7 @@ class FeedViewController: UIViewController {
  
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-      //  parseStoryFromJSON()
+ //       parseStoryFromJSON()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -66,39 +73,39 @@ class FeedViewController: UIViewController {
     }
     
     @IBAction func sortByDateTapped(_ sender: Any) {
+        stories.sort { $0.timeshamp < $1.timeshamp }
+        tableView.reloadData()
     }
     
     @IBAction func sortByRatingTapped(_ sender: Any) {
+        stories.sort { $0.likesCount < $1.likesCount }
+        tableView.reloadData()
     }
     
     private func getPosts() {
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
         
-   //     let jsonURL = apiConfig.fetchURL(with: .posts, parameter: 0)
-  //      print("url = \(jsonURL!)")
+        let jsonURL = apiConfig.fetchURL(with: .posts, parameter: 0)
+        print("url = \(jsonURL!)")
       
-        let url: URL = URL(string: "https://raw.githubusercontent.com/aShaforostov/jsons/master/api/main.json")!
-        
-        jsonParser.downloadData(of: ShortPost.self, from: url) { (result) in
+        jsonParser.downloadData(of: ShortPosts.self, from: jsonURL!) { (result) in
                switch result {
-               case .failure(let error):
-                   if error is DataError {
-                       print("DataError = \(error)")
-                   } else {
-                       print(error.localizedDescription)
-                   }
-               case .success(let jsonResult):
-                DispatchQueue.main.async {
-                    self.stories = jsonResult
-                    self.activityIndicator.isHidden = true
-                    self.activityIndicator.stopAnimating()
-                    self.tableView.reloadData()
-                     
-                }
-                   
-               }
-               
+                   case .failure(let error):
+                       if error is DataError {
+                           print("DataError = \(error)")
+                       } else {
+                           print(error.localizedDescription)
+                       }
+                   case .success(let jsonResult):
+                    DispatchQueue.main.async {
+                        self.stories = jsonResult.posts
+                        self.activityIndicator.isHidden = true
+                        self.activityIndicator.stopAnimating()
+                        self.tableView.reloadData()
+                    }
+                  
+              }
            }
 
     }
@@ -106,28 +113,23 @@ class FeedViewController: UIViewController {
     
     private func parseStoryFromJSON() {
         guard let path = Bundle.main.url(forResource: "feedPosts", withExtension: "json") else {
-            print("Error finding JSON file")
-            return
-        }
-        do {
-            let data = try Data(contentsOf: path)
-            let decoder = JSONDecoder()
-            let jsonResult = try decoder.decode(ShortPosts.self, from: data)
-      
-            
-            stories = jsonResult.shortPosts
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
+                print("Error finding JSON file")
+                return
             }
-            
-        } catch {
-            print("Error while decoding JSON")
-        }
-        
-    }
-    
-   
-    
+            do {
+                let data = try Data(contentsOf: path)
+                let decoder = JSONDecoder()
+                let jsonResult = try decoder.decode(ShortPosts.self, from: data)
+
+                stories = jsonResult.posts
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+
+            } catch {
+                print("Error while decoding JSON")
+            }
+       }
 }
 
 extension UINavigationBar {
@@ -167,15 +169,16 @@ extension FeedViewController: UITableViewDataSource {
         }
         
         cell.titleLabel.text = stories[indexPath.section].title
-        cell.shotTextLabel.text = stories[indexPath.section].previewText
+        cell.shortTextLabel.text = stories[indexPath.section].previewText
         cell.likeCountLabel.text = String(stories[indexPath.section].likesCount)
+        cell.timePostLabel.text = stories[indexPath.section].timeshamp.toDate() + " минут назад"
         
         cell.backgroundColor = UIColor.white
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.clear.cgColor
         cell.clipsToBounds = true
         
-        if cell.shotTextLabel.maxNumberOfLines == 1 {
+        if cell.shortTextLabel.maxNumberOfLines == 1 {
             cell.btnShowText.isHidden = true
             isHiddenButtonInCell = true
        //     cell.shotTextLabel.heightAnchor.constraint(equalToConstant: 16) = true
@@ -189,9 +192,9 @@ extension FeedViewController: UITableViewDataSource {
         return cell
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
+//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        return UITableView.automaticDimension
+//    }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if isHiddenButtonInCell {

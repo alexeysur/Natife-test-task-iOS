@@ -25,6 +25,7 @@
 		8A8AE25A26AC1A510035222D /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8AE25926AC1A510035222D /* StoryViewController.swift */; };
 		8A8AE26626AC31C00035222D /* feedPosts.json in Resources */ = {isa = PBXBuildFile; fileRef = 8A8AE26526AC31C00035222D /* feedPosts.json */; };
 		8A8AE26826AC32BB0035222D /* post112.json in Resources */ = {isa = PBXBuildFile; fileRef = 8A8AE26726AC32BB0035222D /* post112.json */; };
+		8A8CBC3C26B1C8F800FE9318 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8CBC3B26B1C8F800FE9318 /* Post.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		8A8AE25926AC1A510035222D /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
 		8A8AE26526AC31C00035222D /* feedPosts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = feedPosts.json; sourceTree = "<group>"; };
 		8A8AE26726AC32BB0035222D /* post112.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = post112.json; sourceTree = "<group>"; };
+		8A8CBC3B26B1C8F800FE9318 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 			children = (
 				8A8AE24E26ABFDF20035222D /* ShortPost.swift */,
 				8A6150E426B06B9A00D99010 /* FullPost.swift */,
+				8A8CBC3B26B1C8F800FE9318 /* Post.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				8A8AE25A26AC1A510035222D /* StoryViewController.swift in Sources */,
 				8A6150EB26B09E2700D99010 /* APIConfig.swift in Sources */,
 				8A8AE24F26ABFDF20035222D /* ShortPost.swift in Sources */,
+				8A8CBC3C26B1C8F800FE9318 /* Post.swift in Sources */,
 				8A6150E926B09B4100D99010 /* JSONParser.swift in Sources */,
 				8A6150E726B06F9700D99010 /* UIInt+Ext.swift in Sources */,
 				8A8AE23726ABFCA70035222D /* AppDelegate.swift in Sources */,
@@ -413,7 +417,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = LifeStories/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -432,7 +436,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = LifeStories/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;

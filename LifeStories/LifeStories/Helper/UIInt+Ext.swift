@@ -10,11 +10,14 @@ import Foundation
 extension Int {
     func toDate() -> String {
         let epochTime = TimeInterval(self) / 1000
-        let date = Date(timeIntervalSince1970: epochTime)
+        let dateBack = Date(timeInterval: -epochTime, since: Date())
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let str = dateFormatter.string(from: date)
-        return str
+        dateFormatter.dateFormat = "D"
+        let daysAgo = dateFormatter.string(from: dateBack)
+ 
+        dateFormatter.dateFormat = "HH:mm"
+        let hoursAgo = dateFormatter.string(from: dateBack)
+        return daysAgo + " д. " + hoursAgo
     }
 }

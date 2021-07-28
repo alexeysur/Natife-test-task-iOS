@@ -10,7 +10,7 @@ import UIKit
 class PostCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var shotTextLabel: UILabel!
+    @IBOutlet weak var shortTextLabel: UILabel!
     @IBOutlet weak var btnShowText: UIButton!
     @IBOutlet weak var heartImage: UIImageView!
     @IBOutlet weak var likeCountLabel: UILabel!
@@ -31,12 +31,12 @@ class PostCell: UITableViewCell {
         titleLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
         titleLabel.tintColor = .black
         
-        shotTextLabel.font = UIFont(name: "HelveticaNeue", size: 14)
-        shotTextLabel.shadowColor = .clear
-        shotTextLabel.tintColor = .black
-        shotTextLabel.numberOfLines = 2
-        shotTextLabel.layer.borderColor = UIColor.red.cgColor
-        shotTextLabel.layer.borderWidth = 1
+        shortTextLabel.font = UIFont(name: "HelveticaNeue", size: 14)
+        shortTextLabel.shadowColor = .clear
+        shortTextLabel.tintColor = .black
+        shortTextLabel.numberOfLines = 2
+        shortTextLabel.layer.borderColor = UIColor.red.cgColor
+        shortTextLabel.layer.borderWidth = 1
         
         
         btnShowText.backgroundColor = .black
@@ -52,5 +52,13 @@ class PostCell: UITableViewCell {
     }
     
     @IBAction func btnShowTextTapped(_ sender: UIButton) {
+        if  shortTextLabel.numberOfLines == 2 {
+            shortTextLabel.numberOfLines = 0
+            btnShowText.setTitle("Скрыть", for: .normal)
+        } else {
+            shortTextLabel.numberOfLines = 2
+            btnShowText.setTitle("Показать полностью", for: .normal)
+        }
+        
     }
 }

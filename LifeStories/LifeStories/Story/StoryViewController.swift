@@ -54,20 +54,20 @@ class StoryViewController: UIViewController {
         do {
             let data = try Data(contentsOf: path)
             let decoder = JSONDecoder()
-            let jsonResult = try decoder.decode(FullPosts.self, from: data)
-     
-            fullPost = jsonResult.fullPost
+            let jsonResult = try decoder.decode(FullPost.self, from: data)
+
+            fullPost = jsonResult
             DispatchQueue.main.async {
                 self.titleStoryLabel.text = self.fullPost?.title
                 self.storyTextView.text = self.fullPost?.text
   //              self.likeCountLabel.text = String(fullPost?.likesCount)
                 self.timePostLabel.text = self.fullPost?.timeshamp.toDate()
             }
-            
+       
         } catch {
             print("Error while decoding JSON")
         }
-    
+
         
     }
     

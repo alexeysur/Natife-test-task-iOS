@@ -15,26 +15,25 @@ enum paragraph: String {
 
 
 final class APIConfig {
-    let host = "raw.githubusercontent.com\\aShaforostov\\jsons\\master\\api"
+    let host = "raw.githubusercontent.com"
+    let path = "/aShaforostov/jsons/master/api"
     
     var baseURL: URLComponents {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = host
+        urlComponents.path = path
         return urlComponents
     }
     
     func fetchURL(with resources: paragraph, parameter: Int) -> URL? {
         var urlComponents = baseURL
-        print("urlComponents = \(urlComponents.url)")
-        
+       
         switch resources {
         case .posts:
-            urlComponents.path = "main.json"
-            print("urlComponents.path = \(urlComponents).json")
+            urlComponents.path = urlComponents.path + "/main.json"
         case .postID:
-            urlComponents.path = "/posts/\(parameter).json"
-            print("urlComponents.path = \(urlComponents)")
+            urlComponents.path = urlComponents.path + "/posts/\(parameter).json"
         }
 
         guard let url = urlComponents.url else {
