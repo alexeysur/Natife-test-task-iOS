@@ -7,6 +7,8 @@
 
 import UIKit
 
+typealias buttonTappedBlock = (_ button:UIButton) -> Void
+
 class PostCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
@@ -16,6 +18,11 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var likeCountLabel: UILabel!
     @IBOutlet weak var timePostLabel: UILabel!
     
+    @IBOutlet weak var shortTextLabelHeight: NSLayoutConstraint!
+    
+    let font = UIFont(name: "HelveticaNeue", size: 14)
+    var height: CGFloat = 0
+    var btnShowTextTapped : buttonTappedBlock!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,6 +35,8 @@ class PostCell: UITableViewCell {
 
     func setupStyleCell() {
         self.backgroundColor = .white
+        self.selectionStyle = .none
+        
         titleLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
         titleLabel.tintColor = .black
         
@@ -51,13 +60,22 @@ class PostCell: UITableViewCell {
         titleLabel.tintColor = .black
     }
     
+      
     @IBAction func btnShowTextTapped(_ sender: UIButton) {
         if  shortTextLabel.numberOfLines == 2 {
             shortTextLabel.numberOfLines = 0
+            shortTextLabel.sizeToFit()
+            
+            shortTextLabelHeight.constant = shortTextLabel.frame.height
+            
             btnShowText.setTitle("Скрыть", for: .normal)
         } else {
             shortTextLabel.numberOfLines = 2
             btnShowText.setTitle("Показать полностью", for: .normal)
+        }
+        
+        if btnShowTextTapped != nil {
+            btnShowTextTapped(sender )
         }
         
     }

@@ -22,4 +22,8 @@ extension UILabel {
            let lineHeight = font.lineHeight
            return Int(ceil(textHeight / lineHeight))
        }
+    
+//    func getSize(constrainedWidth: CGFloat) -> CGSize {
+//            return systemLayoutSizeFitting(CGSize(width: constrainedWidth, height: UIView.layoutFittingCompressedSize.height), withHorizontalFittingPriority: .required, verticalFittingPriority: .fittingSizeLevel)
+//        }
 }

@@ -18,10 +18,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="450" height="189"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agn-jL-H2X">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agn-jL-H2X">
                         <rect key="frame" x="32" y="16" width="386" height="24"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="24" id="3XR-40-YgU"/>
+                            <constraint firstAttribute="height" priority="250" constant="24" id="3XR-40-YgU"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -30,7 +30,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kxb-M8-fWg">
                         <rect key="frame" x="32" y="56" width="386" height="36"/>
                         <constraints>
-                            <constraint firstAttribute="height" priority="999" constant="36" id="EaL-4g-HIQ"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="250" constant="36" id="EaL-4g-HIQ"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -77,7 +77,7 @@
                     <constraint firstItem="Bdp-5U-Oql" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="H5u-UJ-oDB"/>
                     <constraint firstAttribute="trailing" secondItem="Kxb-M8-fWg" secondAttribute="trailing" constant="32" id="KjC-d1-Aag"/>
                     <constraint firstAttribute="trailing" secondItem="agn-jL-H2X" secondAttribute="trailing" constant="32" id="Nlv-6G-Byj"/>
-                    <constraint firstItem="Bdp-5U-Oql" firstAttribute="top" secondItem="Kxb-M8-fWg" secondAttribute="bottom" priority="999" constant="16" id="SSx-sh-HkI"/>
+                    <constraint firstItem="Bdp-5U-Oql" firstAttribute="top" secondItem="Kxb-M8-fWg" secondAttribute="bottom" constant="16" id="SSx-sh-HkI"/>
                     <constraint firstItem="CwT-7W-8xw" firstAttribute="leading" secondItem="VfL-Xk-9qG" secondAttribute="trailing" constant="8" id="eNV-av-mzE"/>
                     <constraint firstAttribute="trailing" secondItem="bGs-1T-oS4" secondAttribute="trailing" constant="18" id="hmy-Ih-Jhg"/>
                     <constraint firstItem="agn-jL-H2X" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="j9L-bB-CoD"/>
@@ -97,6 +97,7 @@
                 <outlet property="heartImage" destination="VfL-Xk-9qG" id="9Hv-lO-F7b"/>
                 <outlet property="likeCountLabel" destination="CwT-7W-8xw" id="yLC-lh-I7P"/>
                 <outlet property="shortTextLabel" destination="Kxb-M8-fWg" id="YWc-MC-bt4"/>
+                <outlet property="shortTextLabelHeight" destination="EaL-4g-HIQ" id="eHw-qE-bBU"/>
                 <outlet property="timePostLabel" destination="bGs-1T-oS4" id="T9T-Nh-9pY"/>
                 <outlet property="titleLabel" destination="agn-jL-H2X" id="eMi-dK-kQh"/>
             </connections>
